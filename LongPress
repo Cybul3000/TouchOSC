@@ -1,0 +1,36 @@
+-- Script to check if the button was pressed for preset period of time and then runs the action
+
+local time = 3000
+
+local last = getMillis()
+
+function onValueChanged(key)
+
+if key == 'x' then 
+
+    if self.values.x == 1 then 
+    
+    last = getMillis()
+    
+    else
+  
+     if getMillis() - last > time then
+
+     action()
+
+else
+     last = getMillis()
+
+     end
+
+    end
+
+end
+
+end
+
+function action()
+
+print("action")
+
+end
